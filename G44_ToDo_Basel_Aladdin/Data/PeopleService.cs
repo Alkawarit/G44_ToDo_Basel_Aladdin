@@ -23,7 +23,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
             return persons;
         }
 
-        public Person FindByIdPerson(int id)
+        public Person? FindByIdPerson(int id)
         {
             foreach(Person person in persons)
             {
@@ -34,7 +34,43 @@ namespace G44_ToDo_Basel_Aladdin.Data
             return null;
         }
 
+
+
+        public Person AddPerson(string firstName,string lastName)
+        {
+            Person person = new Person(firstName, lastName);
+
+            //Person[] newPeople = new Person[persons.Length + 1];
+
+            //for (int i=0; i < persons.Length; i++)
+            //{
+            //    newPeople[i] = persons[i];
+            //}
+
+            //newPeople[persons.Length] = person;
+
+            //persons = newPeople;
+
+            //return person;
+
+
+
+            List<Person> newPeople = persons.ToList();
+
+            newPeople.Add(person);
+
+            Person[] people = newPeople.ToArray();
+
+            persons = people;
+
+            return person;
+
+
         }
 
+
+
     }
+
+}
 
