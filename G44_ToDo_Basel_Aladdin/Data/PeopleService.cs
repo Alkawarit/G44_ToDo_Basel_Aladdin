@@ -12,13 +12,13 @@ namespace G44_ToDo_Basel_Aladdin.Data
 
         private static Person[] persons = { new Person("Basel", "Askar"), new Person("Alexis", "Caput"), new Person("Aladdin", "Alkawarit") };
 
-        public int Size() 
+        public static int Size() 
         { 
 
             return persons.Length; 
         }
         
-        public  Person[] FindAllPerson()
+        public static Person[] FindAllPerson()
         {
             return persons;
         }
@@ -66,6 +66,10 @@ namespace G44_ToDo_Basel_Aladdin.Data
             return person;
 
 
+        }
+        public void Clear()
+        {
+            persons = new Person[0];
         }
 
 
