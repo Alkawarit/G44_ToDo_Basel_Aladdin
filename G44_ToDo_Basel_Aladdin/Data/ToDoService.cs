@@ -61,9 +61,9 @@ namespace G44_ToDo_Basel_Aladdin.Data
 
 
         // 10--add method
-        public ToDo[]? FindByDoneStatus(bool doneStatus)  // Returns array with objects that has a matching done status.
+         public ToDo[]? FindByDoneStatus(bool doneStatus)  // Returns array with objects that has a matching done status.
         {
-            ToDo[] tasksDone = new ToDo[tasks.Length];
+            ToDo[] tasksDone= new ToDo[tasks.Length];
             for (int i = 0; i < tasks.Length; i++)
             {
                 if (tasks[i].Done)
@@ -84,7 +84,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
         public ToDo[] FindByAssignee(Person assignee) // Returns array with ToDo´s that has this Person as its assignee.
         {
             ToDo[] tasksByPerson = new ToDo[tasks.Length];
-            for (int i = 0; i < tasks.Length; i++)
+            for (int i = 0; i<tasks.Length; i++)
             {
                 if (tasks[i].Assignee.Id == assignee.Id)
                     tasksByPerson[i] = tasks[i];
@@ -98,20 +98,20 @@ namespace G44_ToDo_Basel_Aladdin.Data
             {
                 if (tasks[i].Assignee.Id == null)
                     unassignedTodoItems[i] = tasks[i];
-            }
+            }            
             return unassignedTodoItems;
         }
 
 
 
-        public void RemoveObjectFromToDoArray(int indexOfTheToDo)
+       public void RemoveObjectFromToDoArray(int indexOfTheToDo)
         {
             int indexToRemove = -1;
             Console.WriteLine("Size Tasks before RemoveObjectFromToDoArray(1): " + tasks.Length);
             for (int i = 0; i < tasks.Length; i++)
             {
                 if (tasks[i].Assignee.Id == indexOfTheToDo)
-                {
+                {                
                     indexToRemove = i;
                     tasks = tasks.Where((source, index) => index != i).ToArray();
                     //break;
@@ -120,7 +120,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
 
 
 
-            Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
+           Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
             foreach (ToDo td in tasks)
             {
                 Console.WriteLine("From the service: " + td.Descriptiion);
@@ -128,7 +128,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
 
 
 
-        }
+       }
 
     }
 }
