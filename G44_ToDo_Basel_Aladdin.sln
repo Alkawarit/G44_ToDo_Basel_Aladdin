@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G44_ToDo_Basel_Aladdin", "G44_ToDo_Basel_Aladdin\G44_ToDo_Basel_Aladdin.csproj", "{349A45A7-F259-4921-AC55-C1DDE439FA7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G44_ToDo_Basel_Alexis_Aladdin", "G44_ToDo_Basel_Aladdin\G44_ToDo_Basel_Alexis_Aladdin.csproj", "{349A45A7-F259-4921-AC55-C1DDE439FA7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
