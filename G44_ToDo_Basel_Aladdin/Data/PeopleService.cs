@@ -72,6 +72,13 @@ namespace G44_ToDo_Basel_Aladdin.Data
             persons = new Person[0];
         }
 
+        public Person[] RemoveObjectFromToDoArray(int indexOfTheToDo)
+        {
+
+            persons = persons.Where((source, index) => index != indexOfTheToDo).ToArray();
+
+            return persons;
+        }
 
 
     }

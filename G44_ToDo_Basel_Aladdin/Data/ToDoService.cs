@@ -63,19 +63,29 @@ namespace G44_ToDo_Basel_Aladdin.Data
         // 10--add method
          public ToDo[]? FindByDoneStatus(bool doneStatus)  // Returns array with objects that has a matching done status.
         {
-            //ToDo[] tasksDone= new ToDo[tasks.Length];
+            //ToDo[] tasksDone = new ToDo[tasks.Length];
             //for (int i = 0; i < tasks.Length; i++)
             //{
             //    if (tasks[i].Done)
             //        tasksDone[i] = tasks[i];
             //}
             //return tasksDone;
-            List<ToDo> doneTasks = new List<ToDo>();
-            foreach(ToDo task in tasks)
-            {
-                if (task.Done) doneTasks.Add(task);
-            }
-            return doneTasks.ToArray();
+            //List<ToDo> doneTasks = new List<ToDo>();
+            //foreach (ToDo task in tasks)
+            //{
+            //    if (task.Done) doneTasks.Add(task);
+            //}
+            //return doneTasks.ToArray();
+
+            //int countTasksDone = 0;
+            //foreach (ToDo toDo in tasks)
+            //{
+            //    if (toDo.Done) countTasksDone++;
+            //}
+            //ToDo[] tasksDone = new ToDo[countTasksDone];
+
+
+            return tasks.Where(todo => todo.Done).ToArray();
         }
         public ToDo[] FindByAssignee(int personId) // Returns array with ToDo´s that has an assignee with a matching id.
         {
@@ -86,15 +96,20 @@ namespace G44_ToDo_Basel_Aladdin.Data
             //        tasksByPersonId[i] = tasks[i];
             //}
             //return tasksByPersonId;
-            List<ToDo> personTasks = new List<ToDo>();
-            foreach (ToDo task in tasks)
-            {
-                if (task.Assignee.Id == personId)
-                {
-                    personTasks.Add(task);
-                }
-            }
-            return personTasks.ToArray();
+
+
+
+            //List<ToDo> personTasks = new List<ToDo>();
+            //foreach (ToDo task in tasks)
+            //{
+            //    if (task.Assignee.Id == personId)
+            //    {
+            //        personTasks.Add(task);
+            //    }
+            //}
+            //return personTasks.ToArray();
+
+            return tasks.Where(todo => todo.Assignee.Id == personId).ToArray();
 
         }
         public ToDo[] FindByAssignee(Person assignee) // Returns array with ToDo´s that has this Person as its assignee.
@@ -106,15 +121,20 @@ namespace G44_ToDo_Basel_Aladdin.Data
             //        tasksByPerson[i] = tasks[i];
             //}
             //return tasksByPerson;
-            List<ToDo> personTasks = new List<ToDo>();
-            foreach (ToDo toDo in tasks)
-            {
-                if (toDo.Assignee.Id == assignee.Id)
-                {
-                    personTasks.Add(toDo);
-                }
-            }
-            return personTasks.ToArray();
+
+
+            //List<ToDo> personTasks = new List<ToDo>();
+            //foreach (ToDo toDo in tasks)
+            //{
+            //    if (toDo.Assignee.Id == assignee.Id)
+            //    {
+            //        personTasks.Add(toDo);
+            //    }
+            //}
+            //return personTasks.ToArray();
+
+
+            return tasks.Where(todo => todo.Assignee?.Id == assignee.Id).ToArray();
         }
         public ToDo[] FindUnassignedTodoItems() // Returns an array of ToDo´s that does not have an assignee set to it.
         {
@@ -125,45 +145,51 @@ namespace G44_ToDo_Basel_Aladdin.Data
             //        unassignedTodoItems[i] = tasks[i];
             //}            
             //return unassignedTodoItems;
-            List<ToDo> unAssignedTasks = new List<ToDo>();
-            foreach (ToDo toDo in tasks)
-            {
-                if (toDo.Assignee == null)
-                {
-                    unAssignedTasks.Add(toDo);
-                }
-            }
-            return unAssignedTasks.ToArray();
+
+            //List<ToDo> unAssignedTasks = new List<ToDo>();
+            //foreach (ToDo toDo in tasks)
+            //{
+            //    if (toDo.Assignee == null)
+            //    {
+            //        unAssignedTasks.Add(toDo);
+            //    }
+            //}
+            //return unAssignedTasks.ToArray();
+
+            return tasks.Where(todo => todo.Assignee != null).ToArray();
         }
 
 
 
        public ToDo[] RemoveObjectFromToDoArray(int indexOfTheToDo)
         {
-           // Console.WriteLine("Size Tasks before RemoveObjectFromToDoArray(1): " + tasks.Length);
-           // tasks = tasks.Where((source, index) => index != indexOfTheToDo).ToArray();
+            // Console.WriteLine("Size Tasks before RemoveObjectFromToDoArray(1): " + tasks.Length);
 
 
 
-           //Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
-           // foreach (ToDo td in tasks)
-           // {
-           //     Console.WriteLine("From the service: " + td.Descriptiion);
-           // }
+            //Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
+            // foreach (ToDo td in tasks)
+            // {
+            //     Console.WriteLine("From the service: " + td.Descriptiion);
+            // }
 
-           // return tasks;
-            List<ToDo> newTasks = new List<ToDo>();
-            for (int i=0; i < tasks.Length; i++)
-            {
-                if (i != indexOfTheToDo)
-                {
-                    newTasks.Add(tasks[i]);
-                }
-            }
+            // return tasks;
 
-            tasks = newTasks.ToArray();
+            //List<ToDo> newTasks = new List<ToDo>();
+            //for (int i=0; i < tasks.Length; i++)
+            //{
+            //    if (i != indexOfTheToDo)
+            //    {
+            //        newTasks.Add(tasks[i]);
+            //    }
+            //}
+
+            //tasks = newTasks.ToArray();
+            //return tasks;
+
+            tasks = tasks.Where((source, index) => index != indexOfTheToDo).ToArray();
+
             return tasks;
-
        }
 
     }
