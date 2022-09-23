@@ -12,13 +12,13 @@ namespace G44_ToDo_Basel_Aladdin.Data
 
         private static ToDo[] tasks = { new ToDo("C#", true, new Person("Basel", "Askar")), new ToDo("SQL", false, new Person("Alexis", "Capot")), new ToDo("Java", true, new Person("Aladdin", "Alkawarit")) };
 
-        public static int Size()
+        public int Size()
         {
 
             return tasks.Length;
         }
 
-        public static ToDo[] FindAllTasks()
+        public ToDo[] FindAllTasks()
         {
             return tasks;
         }
@@ -53,7 +53,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
         }
 
 
-            public void Clear()
+        public void Clear()
         {
             tasks = new ToDo[0];
         }
@@ -63,70 +63,106 @@ namespace G44_ToDo_Basel_Aladdin.Data
         // 10--add method
          public ToDo[]? FindByDoneStatus(bool doneStatus)  // Returns array with objects that has a matching done status.
         {
-            ToDo[] tasksDone= new ToDo[tasks.Length];
-            for (int i = 0; i < tasks.Length; i++)
+            //ToDo[] tasksDone= new ToDo[tasks.Length];
+            //for (int i = 0; i < tasks.Length; i++)
+            //{
+            //    if (tasks[i].Done)
+            //        tasksDone[i] = tasks[i];
+            //}
+            //return tasksDone;
+            List<ToDo> doneTasks = new List<ToDo>();
+            foreach(ToDo task in tasks)
             {
-                if (tasks[i].Done)
-                    tasksDone[i] = tasks[i];
+                if (task.Done) doneTasks.Add(task);
             }
-            return tasksDone;
+            return doneTasks.ToArray();
         }
         public ToDo[] FindByAssignee(int personId) // Returns array with ToDo´s that has an assignee with a matching id.
         {
-            ToDo[] tasksByPersonId = new ToDo[tasks.Length];
-            for (int i = 0; i < tasks.Length; i++)
+            //ToDo[] tasksByPersonId = new ToDo[tasks.Length];
+            //for (int i = 0; i < tasks.Length; i++)
+            //{
+            //    if (tasks[i].Assignee.Id == personId)
+            //        tasksByPersonId[i] = tasks[i];
+            //}
+            //return tasksByPersonId;
+            List<ToDo> personTasks = new List<ToDo>();
+            foreach (ToDo task in tasks)
             {
-                if (tasks[i].Assignee.Id == personId)
-                    tasksByPersonId[i] = tasks[i];
+                if (task.Assignee.Id == personId)
+                {
+                    personTasks.Add(task);
+                }
             }
-            return tasksByPersonId;
+            return personTasks.ToArray();
+
         }
         public ToDo[] FindByAssignee(Person assignee) // Returns array with ToDo´s that has this Person as its assignee.
         {
-            ToDo[] tasksByPerson = new ToDo[tasks.Length];
-            for (int i = 0; i<tasks.Length; i++)
+            //ToDo[] tasksByPerson = new ToDo[tasks.Length];
+            //for (int i = 0; i<tasks.Length; i++)
+            //{
+            //    if (tasks[i].Assignee.Id == assignee.Id)
+            //        tasksByPerson[i] = tasks[i];
+            //}
+            //return tasksByPerson;
+            List<ToDo> personTasks = new List<ToDo>();
+            foreach (ToDo toDo in tasks)
             {
-                if (tasks[i].Assignee.Id == assignee.Id)
-                    tasksByPerson[i] = tasks[i];
+                if (toDo.Assignee.Id == assignee.Id)
+                {
+                    personTasks.Add(toDo);
+                }
             }
-            return tasksByPerson;
+            return personTasks.ToArray();
         }
         public ToDo[] FindUnassignedTodoItems() // Returns an array of ToDo´s that does not have an assignee set to it.
         {
-            ToDo[] unassignedTodoItems = new ToDo[tasks.Length];
-            for (int i = 0; i < tasks.Length; i++)
+            //ToDo[] unassignedTodoItems = new ToDo[tasks.Length];
+            //for (int i = 0; i < tasks.Length; i++)
+            //{
+            //    if (tasks[i].Assignee.Id == null)
+            //        unassignedTodoItems[i] = tasks[i];
+            //}            
+            //return unassignedTodoItems;
+            List<ToDo> unAssignedTasks = new List<ToDo>();
+            foreach (ToDo toDo in tasks)
             {
-                if (tasks[i].Assignee.Id == null)
-                    unassignedTodoItems[i] = tasks[i];
-            }            
-            return unassignedTodoItems;
+                if (toDo.Assignee == null)
+                {
+                    unAssignedTasks.Add(toDo);
+                }
+            }
+            return unAssignedTasks.ToArray();
         }
 
 
 
-       public void RemoveObjectFromToDoArray(int indexOfTheToDo)
+       public ToDo[] RemoveObjectFromToDoArray(int indexOfTheToDo)
         {
-            int indexToRemove = -1;
-            Console.WriteLine("Size Tasks before RemoveObjectFromToDoArray(1): " + tasks.Length);
-            for (int i = 0; i < tasks.Length; i++)
+           // Console.WriteLine("Size Tasks before RemoveObjectFromToDoArray(1): " + tasks.Length);
+           // tasks = tasks.Where((source, index) => index != indexOfTheToDo).ToArray();
+
+
+
+           //Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
+           // foreach (ToDo td in tasks)
+           // {
+           //     Console.WriteLine("From the service: " + td.Descriptiion);
+           // }
+
+           // return tasks;
+            List<ToDo> newTasks = new List<ToDo>();
+            for (int i=0; i < tasks.Length; i++)
             {
-                if (tasks[i].Assignee.Id == indexOfTheToDo)
-                {                
-                    indexToRemove = i;
-                    tasks = tasks.Where((source, index) => index != i).ToArray();
-                    //break;
+                if (i != indexOfTheToDo)
+                {
+                    newTasks.Add(tasks[i]);
                 }
             }
 
-
-
-           Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
-            foreach (ToDo td in tasks)
-            {
-                Console.WriteLine("From the service: " + td.Descriptiion);
-            }
-
-
+            tasks = newTasks.ToArray();
+            return tasks;
 
        }
 

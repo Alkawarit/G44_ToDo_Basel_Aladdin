@@ -24,5 +24,6 @@ namespace G44_ToDo_Basel_Aladdin.Models
             FirstName = firstName;
             LastName = lastName;
         }
+
     }
 }
