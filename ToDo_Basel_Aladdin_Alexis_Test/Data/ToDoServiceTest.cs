@@ -62,7 +62,60 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             Assert.Equal(expected, result);
           
         }
+        [Fact]
+        public void TestAddTask()
+        {
+            //Arrange
+            ToDo[] expected = { new ToDo("C#", true, new Person("Basel", "Askar")),
+                                        new ToDo("SQL", false, new Person("Alexis", "Capot")),
+                                        new ToDo("Java", true, new Person("Aladdin", "Alkawarit")),
+                                        new ToDo ("Paython", false, null)};
 
+            ToDo addTask = expected[expected.Length - 1];
+
+            //Act
+            ToDoService toDoService = new ToDoService();
+            ToDo result = toDoService.AddTask("Paython", false, null);
+
+            //Assert
+            Assert.Equal(addTask.Descriptiion, result.Descriptiion);
+            Assert.Equal(addTask.Assignee, result.Assignee);
+           
+        }
+
+        [Fact]
+        public void TestClear()
+        {
+            //Arrange
+            ToDo[] expected = new ToDo[0];
+
+            //Act
+            ToDoService toDoService = new ToDoService();
+            toDoService.Clear();
+
+            //Assert
+            Assert.Equal(expected, toDoService.FindAllTasks());
+
+        }
+
+        [Fact]
+
+        public void TestFindByDoneStatus()
+        {
+            //Arrange
+            ToDo[] expected = { new ToDo("C#", true, new Person("Basel", "Askar")),
+                                new ToDo("Java", true, new Person("Aladdin", "Alkawarit")) };
+
+            //Act
+            ToDoService toDoService = new ToDoService();
+            ToDo[] result = toDoService.FindByDoneStatus(true);
+            //Assert
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.Equal(expected[i], result[i]);
+            }
+        }
     }
   } 
 
