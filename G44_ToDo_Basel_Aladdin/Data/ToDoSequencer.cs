@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace G44_ToDo_Basel_Aladdin.Data
 {
-    internal class ToDoSequencer
+    public class ToDoSequencer
     {
 
         private static int toDoId;
 
-        public static int PersonId { get { return toDoId; } }
+        public static int ToDoId { get { return toDoId; } }
 
         public static int NextToDoId()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G44_ToDo_Basel_Aladdin.Models
 {
-    internal class Person
+    public class Person
     {
         private readonly int id;
         private string _firstName;
@@ -24,5 +24,13 @@ namespace G44_ToDo_Basel_Aladdin.Models
             FirstName = firstName;
             LastName = lastName;
         }
+
+        public Person(int id,string firstName,string lastName)
+        {
+            this.id=id;
+            this._firstName = firstName;
+            this._lastName = lastName;
+        }
+
     }
 }

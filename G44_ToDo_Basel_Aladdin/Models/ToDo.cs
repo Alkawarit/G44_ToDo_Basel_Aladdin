@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G44_ToDo_Basel_Aladdin.Models
 {
-    internal class ToDo
+    public class ToDo
     {
         private readonly int id;
         private string descriptiion;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G44_ToDo_Basel_Aladdin.Data
 {
-    internal class PersonSequencer
+    public class PersonSequencer
     {
 
         private static int personId;

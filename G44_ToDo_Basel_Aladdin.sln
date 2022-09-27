@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G44_ToDo_Basel_Alexis_Aladdin", "G44_ToDo_Basel_Aladdin\G44_ToDo_Basel_Alexis_Aladdin.csproj", "{349A45A7-F259-4921-AC55-C1DDE439FA7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo_Basel_Aladdin_Alexis_Test", "ToDo_Basel_Aladdin_Alexis_Test\ToDo_Basel_Aladdin_Alexis_Test.csproj", "{36A726C0-EC4C-41DD-BB70-92E99EB924A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{349A45A7-F259-4921-AC55-C1DDE439FA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{349A45A7-F259-4921-AC55-C1DDE439FA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{349A45A7-F259-4921-AC55-C1DDE439FA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A726C0-EC4C-41DD-BB70-92E99EB924A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A726C0-EC4C-41DD-BB70-92E99EB924A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A726C0-EC4C-41DD-BB70-92E99EB924A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A726C0-EC4C-41DD-BB70-92E99EB924A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

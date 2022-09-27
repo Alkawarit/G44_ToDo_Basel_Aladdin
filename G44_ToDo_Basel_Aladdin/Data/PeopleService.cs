@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace G44_ToDo_Basel_Aladdin.Data
 {
-    internal class PeopleService
+    public class PeopleService
     {
 
-        private static Person[] persons = { new Person("Basel", "Askar"), new Person("Alexis", "Caput"), new Person("Aladdin", "Alkawarit") };
+        private static Person[] persons = { new Person("Basel", "Askar"),
+                                            new Person("Alexis", "Caput"),
+                                            new Person("Aladdin", "Alkawarit") };
 
-        public static int Size() 
+        public int Size() 
         { 
 
             return persons.Length; 
         }
         
-        public static Person[] FindAllPerson()
+        public Person[] FindAllPerson()
         {
             return persons;
         }
@@ -72,6 +74,13 @@ namespace G44_ToDo_Basel_Aladdin.Data
             persons = new Person[0];
         }
 
+        public Person[] RemoveObjectFromPeopleArray(int indexOfThePerson)
+        {
+
+            persons = persons.Where((source, index) => index != indexOfThePerson).ToArray();
+
+            return persons;
+        }
 
 
     }
