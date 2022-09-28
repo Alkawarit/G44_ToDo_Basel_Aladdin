@@ -62,6 +62,9 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             Assert.Equal(expected, result);
           
         }
+
+
+
         [Fact]
         public void TestAddTask()
         {
@@ -76,10 +79,16 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             //Act
             ToDoService toDoService = new ToDoService();
             ToDo result = toDoService.AddTask("Paython", false, null);
+            ToDo[] tasks = toDoService.FindAllTasks();
+
+            bool isAddedTask = tasks.Any(t => t.Descriptiion == "Paython");
 
             //Assert
             Assert.Equal(addTask.Descriptiion, result.Descriptiion);
             Assert.Equal(addTask.Assignee, result.Assignee);
+
+            Assert.Equal(expected.Length,toDoService.FindAllTasks().Length);
+            Assert.True(isAddedTask);
            
         }
 
@@ -87,14 +96,14 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
         public void TestClear()
         {
             //Arrange
-            ToDo[] expected = new ToDo[0];
+            int expected = 0;
 
             //Act
             ToDoService toDoService = new ToDoService();
             toDoService.Clear();
 
             //Assert
-            Assert.Equal(expected, toDoService.FindAllTasks());
+            Assert.Equal(expected, toDoService.FindAllTasks().Length);
 
         }
 
@@ -109,12 +118,18 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             //Act
             ToDoService toDoService = new ToDoService();
             ToDo[] result = toDoService.FindByDoneStatus(true);
-            //Assert
 
-            for (int i = 0; i < result.Length; i++)
+            bool isAllStatusDone = result.All(t => t.Done);
+
+            //Assert
+            Assert.True(isAllStatusDone);
+            Assert.Equal(expected.Length,result.Length);
+
+            for (int i = 0; i < expected.Length; i++)
             {
-                Assert.Equal(expected[i], result[i]);
+                Assert.Equal(expected[i].Descriptiion,result[i].Descriptiion);
             }
+            
         }
     }
   } 
