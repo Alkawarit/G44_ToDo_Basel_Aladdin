@@ -15,19 +15,40 @@ namespace G44_ToDo_Basel_Aladdin.Models
         private Person assignee;
 
         public int Id { get { return id; } }
-        public string Descriptiion { get { return descriptiion; } set { descriptiion = value; } }
+        public string Description {
+            get { return descriptiion; } 
+            set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Description is not valid");
+                }
+
+                descriptiion = value; 
+            } 
+        }
         public bool Done { get { return done; } set { done = value; } }
         public Person Assignee { get { return assignee; } set { assignee = value; } }
-        public ToDo(  string description, bool done, Person assignee)
+        
+        
+        public ToDo(string description, bool done, Person assignee)
         {
             this.id = ToDoSequencer.NextToDoId();
-            this.descriptiion = description;
-            this.done = done;
-            this.assignee = assignee;
+            Description = description;
+            Done = done;
+            Assignee = assignee;
+        }
+
+
+
+        public ToDo(string description)
+        {
+
+            Description = description;
         }
         
 
-        }
-
     }
+
+}
 

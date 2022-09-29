@@ -13,11 +13,33 @@ namespace G44_ToDo_Basel_Aladdin.Models
         private string _firstName;
         private string _lastName;
         public int Id { get { return id; } }
-        public string FirstName { get { return _firstName; } set  { _firstName = value; } }
-        public string LastName { get { return _lastName; }  set { _lastName = value; } }
+        public string FirstName {
+            get { return _firstName; } 
+            set  
+            { 
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("This is not valid FirstName");
+                }
+
+                _firstName = value;
+            } 
+        }
+        public string LastName { 
+            get { return _lastName; }  
+            set 
+            { 
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("This is not valid LastName");
+                }
+                _lastName = value; 
+            } 
+        }
 
         public Person( string firstName, string lastName) 
         {
+
             this.id = PersonSequencer.NextPersonId();
             FirstName = firstName;
             LastName = lastName;
@@ -27,9 +49,16 @@ namespace G44_ToDo_Basel_Aladdin.Models
 
         public Person(int id,string firstName,string lastName)
         {
+
+            if (id <= 0)
+            {
+                throw new ArgumentException("id is not valid");
+            }
+
+
             this.id=id;
-            this._firstName = firstName;
-            this._lastName = lastName;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
     }

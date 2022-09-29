@@ -41,7 +41,7 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
 
             for (int i = 0; i < result.Length; i++)
             {
-                Assert.Equal(expected[i].Descriptiion, result[i].Descriptiion);
+                Assert.Equal(expected[i].Description, result[i].Description);
                 Assert.Equal(expected[i].Done, result[i].Done);
                // Assert.Equal(expected[i].Assignee, result[i].Assignee);
             }
@@ -58,7 +58,7 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             ToDo? result = toDoService.FindByIdTasks(1);
 
             //Assert
-            //Assert.Equal(expected.Descriptiion, result.Descriptiion);
+            //Assert.Equal(expected.Description, result.Description);
             Assert.Equal(expected, result);
           
         }
@@ -81,10 +81,10 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
             ToDo result = toDoService.AddTask("Paython", false, null);
             ToDo[] tasks = toDoService.FindAllTasks();
 
-            bool isAddedTask = tasks.Any(t => t.Descriptiion == "Paython");
+            bool isAddedTask = tasks.Any(t => t.Description == "Paython");
 
             //Assert
-            Assert.Equal(addTask.Descriptiion, result.Descriptiion);
+            Assert.Equal(addTask.Description, result.Description);
             Assert.Equal(addTask.Assignee, result.Assignee);
 
             Assert.Equal(expected.Length,toDoService.FindAllTasks().Length);
@@ -127,7 +127,7 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
 
             for (int i = 0; i < expected.Length; i++)
             {
-                Assert.Equal(expected[i].Descriptiion,result[i].Descriptiion);
+                Assert.Equal(expected[i].Description,result[i].Description);
             }
             
         }

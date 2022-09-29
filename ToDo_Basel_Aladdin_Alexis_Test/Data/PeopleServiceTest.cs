@@ -45,7 +45,7 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
         {
             //Arrange
             PeopleService peopleService = new PeopleService();
-            //Person expected = peopleService.FindAllPerson()[0];
+            //PersonTest expected = peopleService.FindAllPerson()[0];
 
             Person expected = new Person(1, "Basel", "Askar");
 
@@ -71,7 +71,7 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
         public void TestAddPerson()
         {
             //Arrange
-            //Person person = new Person("Åsa", "Jonsson");
+            //PersonTest person = new PersonTest("Åsa", "Jonsson");
             Person[] expected = { new Person( "Basel", "Askar"),
                                   new Person( "Alexis", "Caput"),
                                   new Person( "Aladdin", "Alkawarit"),

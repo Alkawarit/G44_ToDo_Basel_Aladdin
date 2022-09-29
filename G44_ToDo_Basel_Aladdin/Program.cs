@@ -11,7 +11,7 @@ namespace G44_ToDo_Basel_Aladdin
 
             //    foreach (ToDo td in toDoService.FindAllTasks())
             //    {
-            //        Console.WriteLine("From the PROGRAM.CS: " + td.Descriptiion);
+            //        Console.WriteLine("From the PROGRAM.CS: " + td.Description);
             //    }
 
 

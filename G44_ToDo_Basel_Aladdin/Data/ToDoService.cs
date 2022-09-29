@@ -172,7 +172,7 @@ namespace G44_ToDo_Basel_Aladdin.Data
             //Console.WriteLine("Size Tasks after RemoveObjectFromToDoArray(1): " + tasks.Length);
             // foreach (ToDo td in tasks)
             // {
-            //     Console.WriteLine("From the service: " + td.Descriptiion);
+            //     Console.WriteLine("From the service: " + td.Description);
             // }
 
             // return tasks;

@@ -15,9 +15,9 @@ namespace ToDo_Basel_Aladdin_Alexis_Test.Data
         [Fact]
         public void TestNextPersonId()
         {
-            //Person person1 = new Person("Basel", "Askar");
-            //Person person2 = new Person("Alexis", "Asskar");
-            //Person person3 = new Person("Aladdin", "AlKawarit");
+            //PersonTest person1 = new PersonTest("Basel", "Askar");
+            //PersonTest person2 = new PersonTest("Alexis", "Asskar");
+            //PersonTest person3 = new PersonTest("Aladdin", "AlKawarit");
 
 
             PersonSequencer.NextPersonId();
